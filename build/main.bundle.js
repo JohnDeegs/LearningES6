@@ -1,10 +1,11 @@
-let calculateMonthlyPayment = function (principal, years, rate) {
-    let monthlyRate = 0;
+'use strict';
+
+var calculateMonthlyPayment = function calculateMonthlyPayment(principal, years, rate) {
     if (rate) {
-        monthlyRate = rate / 100 / 12;
+        var _monthlyRate = rate / 100 / 12;
     }
-    let monthlyPayment = principal * monthlyRate / (1 - (Math.pow(1 / (1 + monthlyRate), years * 12)));
-    return {principal, years, rate, monthlyPayment, monthlyRate};
+    var monthlyPayment = principal * monthlyRate / (1 - Math.pow(1 / (1 + monthlyRate), years * 12));
+    return monthlyPayment;
 };
 
 document.getElementById('calcBtn').addEventListener('click', function () {
